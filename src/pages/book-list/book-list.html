@@ -1,18 +1,28 @@
-<!--
-  Generated template for the BookListPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>BookListPage</ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only (click)="onToggleMenu()">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Liste Livres
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
+  <ion-list >
+    <button ion-item
+            icon-start
+            *ngFor="let book of listBook ; let i= index"
+            (click)="onLoadBook(book)"
+            [ngClass]="{'preteClass': book.estPrete, 'renduClass': !book.estPrete}"
+>
+      <ion-icon  [color]=" book.estPrete?'danger':'secondary'" name="book"></ion-icon>
+      {{book.title}}
+
+     </button>
+  </ion-list>
 
 </ion-content>

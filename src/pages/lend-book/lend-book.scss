@@ -1,3 +1,12 @@
 page-lend-book {
-
+  .preteClass {
+    ion-card-content, ion-card-header, ion-grid {
+      background-color: color($colors, secondary-light);
+    }
+  }
+  .renduClass {
+    ion-card-content, ion-card-header, ion-grid {
+      background-color: color($colors, danger-light);
+    }
+  }
 }

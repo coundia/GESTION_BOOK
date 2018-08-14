@@ -1,3 +1,8 @@
 page-book-list {
-
+  .renduClass {
+      background-color: color($colors, secondary-light);
+  }
+  .preteClass {
+      background-color: color($colors, danger-light);
+  }
 }

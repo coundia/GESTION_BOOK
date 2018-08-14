@@ -1,24 +1,24 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the LendBookPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
+import { NavParams, ViewController} from 'ionic-angular';
+import {CdBookService} from "../../services/CdBookService";
+import {Book} from "../../models/Book";
 @Component({
   selector: 'page-lend-book',
   templateUrl: 'lend-book.html',
 })
 export class LendBookPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+ book : Book;
+  constructor(private navParam : NavParams, private viewCtrl : ViewController , private serviceCdBook: CdBookService) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LendBookPage');
+  ngOnInit() {
+     this.book= this.navParam.get('book');
+  }
+  dismissModal() {
+    this.viewCtrl.dismiss();
+  }
+  onPreter(){
+    this.serviceCdBook.preterOuRendre(this.book);
   }
 
 }
